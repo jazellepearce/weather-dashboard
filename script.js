@@ -32,7 +32,7 @@ function displayWeather(event) {
     currentWeather(city);
   }
 }
-const GC_URL_1 = "http://api.openweathermap.org/geo/1.0/direct?q="; //q=City, ST, US
+const GC_URL_1 = "https://api.openweathermap.org/geo/1.0/direct?q="; //q=City, ST, US
 function currentWeather(city) {
 
   let url1 = GC_URL_1 + city + "&APPID=" + APIKey;
