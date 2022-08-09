@@ -1,52 +1,116 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Weather Dashboard</title>
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
 
-<body>
-    <div id="header" class="jumbotron jumbotron-fluid text-container">
-        <h1 id="header-text" class="display-2"></h1>
-        <div id="artist-credit"></div>
+    <div
+      class="jumbotron container-fluid mt-2 text-center p-2"
+      style="background-color: rgb(0, 0, 255); color: white"
+    >
+      <h1><strong>Weather Dashboard</strong></h1>
     </div>
-
-    <div id="content" class="container">
-        <div class="row">
-
-
-            <div id="content-left" class="col-md-3">
-                <form>
-                    <label for="search-city">Search for a City:</label>
-                    <div class="form-row">
-                        <input id="search-city" class="form-control" name="city" value="Austin"></input>
-                        <button id="search-button" class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
-                    </div>
-                </form>
-                <div id="search-error"></div>
-                <ul id="city-results" class="list-group mt-4"></ul>
-                <a id="clear-storage" href="#"></a>    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 bg-light">
+          <h4 class="pt-1"><strong>Search for a City:</strong></h4>
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="search-city"
+              aria-label="City Search"
+              aria-describedby="search-button"
+            />
+            <div class="input-group-append">
+              <button class="btn bg-primary text-light" id="search-button">
+                <i class="fa fa-search"></i>
+              </button>
             </div>
-
-
-            <div id="content-right" class="col-md-9 pt-4">
-                <div id="current-weather" class="border rounded"></div>
-                <div id="five-day-forecast" class="mt-5"></div>
-            </div>
+          </div>
+          <button class="btn btn-primary" type="button" id="clear-history">
+            Clear history
+          </button>
+          <ul class="list-group"></ul>
         </div>
+        <div class="col-sm-8">
+          <div class="row ml-2 border border-dark rounded">
+            <div class="col-sm-12" id="current-weather">
+              <h3 class="city-name mb-1 mt-2 bolder" id="current-city"></h3>
+              <p>Temperature:<span class="current" id="temperature"></span></p>
+              <p>Humidity:<span class="current" id="humidity"></span></p>
+              <p>Wind Speed:<span class="current" id="wind-speed"></span></p>
+              <p>
+                UV index:<span
+                  class="current"
+                  id="uv-index"
+                ></span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-12" id="future-weather">
+            <h3>5-Day Forecast:</h3>
+            <div class="row text-light">
+              <div
+                class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded"
+              >
+                <p id="Date0"></p>
+                <p id="Img0"></p>
+                <p>T:<span id="Temp0"></span></p>
+                <p>H:<span id="Humidity0"></span></p>
+              </div>
+              <div
+                class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded"
+              >
+                <p id="Date1"></p>
+                <p id="Img1"></p>
+                <p>T:<span id="Temp1"></span></p>
+                <p>H:<span id="Humidity1"></span></p>
+              </div>
+              <div
+                class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded"
+              >
+                <p id="Date2"></p>
+                <p id="Img2"></p>
+                <p>T:<span id="Temp2"></span></p>
+                <p>H:<span id="Humidity2"></span></p>
+              </div>
+              <div
+                class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded"
+              >
+                <p id="Date3"></p>
+                <p id="Img3"></p>
+                <p>T:<span id="Temp3"></span></p>
+                <p>H:<span id="Humidity3"></span></p>
+              </div>
+              <div
+                class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded"
+              >
+                <p id="Date4"></p>
+                <p id="Img4"></p>
+                <p>T:<span id="Temp4"></span></p>
+                <p>H:<span id="Humidity4"></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="./assets/js/script.js"></script>
-    
-</body>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
